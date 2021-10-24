@@ -25,8 +25,5 @@ pipeline{
                archiveArtifacts artifacts: 'build/'
             }
         }
-        post('Package'){
-            sh 'package'
-        }
     }
 }
