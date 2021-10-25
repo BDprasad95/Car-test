@@ -14,6 +14,7 @@ pipeline{
         }
         stage("Test"){
             steps{
+                sh 'mvn test'
                 sh 'test -f build/car.txt'
                 sh 'grep "Chassis" build/car.txt'
                 sh 'grep "Engine" build/car.txt'
