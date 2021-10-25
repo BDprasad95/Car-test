@@ -14,14 +14,17 @@ pipeline{
         }
         stage("Test"){
             steps{
-                sh 'mvn test'
                 sh 'test -f build/car.txt'
                 sh 'grep "Chassis" build/car.txt'
                 sh 'grep "Engine" build/car.txt'
                 sh 'grep "Body" build/car.txt'
             }
         }
-        
+        stage("Testing"){
+            steps{
+                sh 'mvn test'
+            }
+        }
         stage("Publish"){
             steps{
                archiveArtifacts artifacts: 'build/'
