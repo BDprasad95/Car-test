@@ -20,7 +20,11 @@ pipeline{
                 sh 'grep "Body" build/car.txt'
             }
         }  
-        
+        stage("Publish"){
+            steps{
+               archiveArtifacts artifacts: 'build/'
+            }
+        }
     }
      
 }
